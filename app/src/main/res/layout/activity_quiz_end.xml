@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QuizStartFragment">
-
+    tools:context=".QuizEndActivity">
     <TextView
         android:id="@+id/title"
         style="@style/TitleTextView"
@@ -22,18 +21,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Your Score is: "
-        app:layout_constraintBottom_toTopOf="@id/start_button"
+        app:layout_constraintBottom_toTopOf="@id/end_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/share_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/share"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/end_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/content" />
 
     <Button
-        android:id="@+id/start_button"
+        android:id="@+id/end_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/end"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/share_button"
         app:layout_constraintTop_toBottomOf="@+id/content" />
 </androidx.constraintlayout.widget.ConstraintLayout>

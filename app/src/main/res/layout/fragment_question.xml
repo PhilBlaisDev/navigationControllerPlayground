@@ -12,43 +12,53 @@
         style="@style/TitleTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="64dp"
+        android:layout_marginEnd="16dp"
         android:textAlignment="center" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:gravity="center">
+        android:layout_marginEnd="16dp"
+        android:gravity="start">
 
         <RadioButton
             android:id="@+id/radioButton1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" />
 
         <RadioButton
             android:id="@+id/radioButton2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" />
 
         <RadioButton
             android:id="@+id/radioButton3"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" />
 
         <RadioButton
             android:id="@+id/radioButton4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" />
     </RadioGroup>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp">
+        android:layout_marginBottom="32dp"
+        android:gravity="bottom">
 
         <TextView
             android:id="@+id/score"

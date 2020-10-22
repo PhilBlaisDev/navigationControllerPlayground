@@ -50,14 +50,35 @@ class Question1Fragment : Fragment() {
 
         view.findViewById<Button>(R.id.action_button).setOnClickListener {
             view.findViewById<RadioGroup>(R.id.radioGroup).checkedRadioButtonId.let { checkId ->
-               if(checkId == -1){
-                  Toast.makeText(context, "Please select an answer", Toast.LENGTH_LONG).show()
-               } else {
-                   if(checkId == QUIZ_CONTENT[contentIndex].correctAnswer){
-                       CURRENT_SCORE += 1
-                   }
-                   findNavController().navigate(R.id.action_Question1Fragment_to_Question2Fragment)
-               }
+                when (checkId) {
+                    -1 -> {
+                        Toast.makeText(context, "Please select an answer", Toast.LENGTH_LONG).show()
+                    }
+                    R.id.radioButton1 -> {
+                        if (MainActivity.QUIZ_CONTENT[contentIndex].correctAnswer == 1) {
+                            CURRENT_SCORE += 1
+                        }
+                        findNavController().navigate(R.id.action_Question1Fragment_to_Question2Fragment)
+                    }
+                    R.id.radioButton2 -> {
+                        if (MainActivity.QUIZ_CONTENT[contentIndex].correctAnswer == 2) {
+                            CURRENT_SCORE += 1
+                        }
+                        findNavController().navigate(R.id.action_Question1Fragment_to_Question2Fragment)
+                    }
+                    R.id.radioButton3 -> {
+                        if (MainActivity.QUIZ_CONTENT[contentIndex].correctAnswer == 3) {
+                            CURRENT_SCORE += 1
+                        }
+                        findNavController().navigate(R.id.action_Question1Fragment_to_Question2Fragment)
+                    }
+                    R.id.radioButton4 -> {
+                        if (MainActivity.QUIZ_CONTENT[contentIndex].correctAnswer == 4) {
+                            CURRENT_SCORE += 1
+                        }
+                        findNavController().navigate(R.id.action_Question1Fragment_to_Question2Fragment)
+                    }
+                }
             }
         }
     }

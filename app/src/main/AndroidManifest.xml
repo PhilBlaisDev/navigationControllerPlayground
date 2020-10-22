@@ -9,12 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PhilippeBlais">
-        <activity android:name=".QuestionListActivity"></activity>
-
-        <activity android:name=".MainActivity"
+        <activity android:name=".QuizEndActivity"></activity>
+        <activity android:name=".QuestionListActivity" />
+        <activity
+            android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.PhilippeBlais.NoActionBar"
-            >
+            android:theme="@style/Theme.PhilippeBlais.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -80,17 +80,7 @@
         tools:layout="@layout/fragment_question">
 
         <action
-            android:id="@+id/action_Question7Fragment_to_QuizEndFragment"
-            app:destination="@id/QuizEndFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/QuizEndFragment"
-        android:name="com.comp3617.assignment1.QuizEndFragment"
-        android:label="@string/eighth_fragment_label"
-        tools:layout="@layout/fragment_end_quiz">
-
-        <action
-            android:id="@+id/action_QuizEndFragment_to_QuizStartFragment"
+            android:id="@+id/action_Question7Fragment_to_QuizStartFragment"
             app:destination="@id/QuizStartFragment" />
     </fragment>
 </navigation>

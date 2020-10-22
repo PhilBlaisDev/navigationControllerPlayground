@@ -1,5 +1,6 @@
 package com.comp3617.assignment1
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -49,15 +50,40 @@ class Question7Fragment : Fragment() {
         }
         view.findViewById<Button>(R.id.action_button).setOnClickListener {
             view.findViewById<RadioGroup>(R.id.radioGroup).checkedRadioButtonId.let { checkId ->
-                if(checkId == -1){
-                    Toast.makeText(context, "Please select an answer", Toast.LENGTH_LONG).show()
-                } else {
-                    if(checkId == MainActivity.QUIZ_CONTENT[contentIndex].correctAnswer){
-                        CURRENT_SCORE += 1
+                when (checkId) {
+                    -1 -> {
+                        Toast.makeText(context, "Please select an answer", Toast.LENGTH_LONG).show()
                     }
-                    findNavController().navigate(R.id.action_Question7Fragment_to_QuizEndFragment)
+                    R.id.radioButton1 -> {
+                        if (MainActivity.QUIZ_CONTENT[contentIndex].correctAnswer == 1) {
+                            CURRENT_SCORE += 1
+                        }
+                        gotToActivity()                    }
+                    R.id.radioButton2 -> {
+                        if (MainActivity.QUIZ_CONTENT[contentIndex].correctAnswer == 2) {
+                            CURRENT_SCORE += 1
+                        }
+                        gotToActivity()                    }
+                    R.id.radioButton3 -> {
+                        if (MainActivity.QUIZ_CONTENT[contentIndex].correctAnswer == 3) {
+                            CURRENT_SCORE += 1
+                        }
+                        gotToActivity()                    }
+                    R.id.radioButton4 -> {
+                        if (MainActivity.QUIZ_CONTENT[contentIndex].correctAnswer == 4) {
+                            CURRENT_SCORE += 1
+                        }
+                        gotToActivity()
+                    }
                 }
             }
+        }
+    }
+
+    private fun gotToActivity(){
+        Intent(requireContext(), QuizEndActivity::class.java).let {
+            requireActivity().startActivity(it)
+            requireActivity().finish()
         }
     }
 }
