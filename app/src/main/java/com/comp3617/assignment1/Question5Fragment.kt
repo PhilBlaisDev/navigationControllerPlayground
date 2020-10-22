@@ -1,5 +1,6 @@
 package com.comp3617.assignment1
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,7 +14,8 @@ import com.comp3617.assignment1.MainActivity.Companion.CURRENT_SCORE
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
 class Question5Fragment : Fragment() {
-    private val contentIndex = 4
+    private var contentIndex = 4
+    private lateinit var portraitImage: ImageView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -24,8 +26,13 @@ class Question5Fragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        portraitImage = view.findViewById(R.id.portrait_image)
+        portraitImage.setImageResource(R.drawable.q1_image)
+
         view.findViewById<TextView>(R.id.score)?.let {
-            it.text = "Your score is ${CURRENT_SCORE}"
+            val text =  "Your score is $CURRENT_SCORE"
+            it.text = text
         }
 
         view.findViewById<TextView>(R.id.question)?.let {
@@ -80,5 +87,25 @@ class Question5Fragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putInt("contentIndex", contentIndex)
+
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        savedInstanceState?.getInt("contentIndex")?.let {
+            contentIndex = it
+        }
+
+        if(resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE){
+            portraitImage.visibility = View.GONE
+        } else{
+            portraitImage.visibility = View.VISIBLE
+        }
+
+        super.onViewStateRestored(savedInstanceState)
     }
 }

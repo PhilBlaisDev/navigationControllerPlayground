@@ -1,5 +1,6 @@
 package com.comp3617.assignment1
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,7 +16,8 @@ import com.comp3617.assignment1.R
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
 class Question1Fragment : Fragment() {
-    private val contentIndex = 0
+    private var contentIndex = 0
+    private lateinit var portraitImage: ImageView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -26,6 +28,8 @@ class Question1Fragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        portraitImage = view.findViewById(R.id.portrait_image)
+        portraitImage.setImageResource(R.drawable.q1_image)
 
         view.findViewById<TextView>(R.id.question)?.let {
             it.text = QUIZ_CONTENT[contentIndex].question
@@ -47,7 +51,6 @@ class Question1Fragment : Fragment() {
             it.text = QUIZ_CONTENT[contentIndex].answer4
         }
 
-
         view.findViewById<Button>(R.id.action_button).setOnClickListener {
             view.findViewById<RadioGroup>(R.id.radioGroup).checkedRadioButtonId.let { checkId ->
                 when (checkId) {
@@ -55,25 +58,25 @@ class Question1Fragment : Fragment() {
                         Toast.makeText(context, "Please select an answer", Toast.LENGTH_LONG).show()
                     }
                     R.id.radioButton1 -> {
-                        if (MainActivity.QUIZ_CONTENT[contentIndex].correctAnswer == 1) {
+                        if (QUIZ_CONTENT[contentIndex].correctAnswer == 1) {
                             CURRENT_SCORE += 1
                         }
                         findNavController().navigate(R.id.action_Question1Fragment_to_Question2Fragment)
                     }
                     R.id.radioButton2 -> {
-                        if (MainActivity.QUIZ_CONTENT[contentIndex].correctAnswer == 2) {
+                        if (QUIZ_CONTENT[contentIndex].correctAnswer == 2) {
                             CURRENT_SCORE += 1
                         }
                         findNavController().navigate(R.id.action_Question1Fragment_to_Question2Fragment)
                     }
                     R.id.radioButton3 -> {
-                        if (MainActivity.QUIZ_CONTENT[contentIndex].correctAnswer == 3) {
+                        if (QUIZ_CONTENT[contentIndex].correctAnswer == 3) {
                             CURRENT_SCORE += 1
                         }
                         findNavController().navigate(R.id.action_Question1Fragment_to_Question2Fragment)
                     }
                     R.id.radioButton4 -> {
-                        if (MainActivity.QUIZ_CONTENT[contentIndex].correctAnswer == 4) {
+                        if (QUIZ_CONTENT[contentIndex].correctAnswer == 4) {
                             CURRENT_SCORE += 1
                         }
                         findNavController().navigate(R.id.action_Question1Fragment_to_Question2Fragment)
@@ -81,5 +84,25 @@ class Question1Fragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putInt("contentIndex", contentIndex)
+
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        savedInstanceState?.getInt("contentIndex")?.let {
+            contentIndex = it
+        }
+
+        if(resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE){
+            portraitImage.visibility = View.GONE
+        } else{
+            portraitImage.visibility = View.VISIBLE
+        }
+
+        super.onViewStateRestored(savedInstanceState)
     }
 }
