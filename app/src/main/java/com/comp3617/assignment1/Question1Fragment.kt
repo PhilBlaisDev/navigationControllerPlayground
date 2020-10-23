@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.appcompat.widget.Toolbar
 import androidx.navigation.fragment.findNavController
 import com.comp3617.assignment1.MainActivity.Companion.CURRENT_SCORE
 import com.comp3617.assignment1.MainActivity.Companion.QUIZ_CONTENT
@@ -22,6 +23,9 @@ class Question1Fragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
+
+        activity?.findViewById<Toolbar>(R.id.toolbar)?.title = getString(R.string.question_1_title)
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_question, container, false)
     }

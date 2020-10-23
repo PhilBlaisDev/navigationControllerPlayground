@@ -59,4 +59,19 @@
     <string name="cheat_sheet">Cheat sheet</string>
     <string name="quit_activity">Quit Activity</string>
     <string name="image_related_to_question">Image related to question</string>
+    <string name="final_score">Your final score is</string>
+    <string name="default_image">Default image</string>
+    <string name="thank_you_for_taking_the_quiz">Thank you for taking the quiz</string>
+    <string name="your_score_is">Your Score is:</string>
+    <string name="question_1_title">Question 1</string>
+    <string name="question_2_title">Question 2</string>
+    <string name="question_3_title">Question 3</string>
+    <string name="question_4_title">Question 4</string>
+    <string name="question_5_title">Question 5</string>
+    <string name="question_6_title">Question 6</string>
+    <string name="question_7_title">Question 7</string>
+    <string name="pick_a_question">Welcome!</string>
+    <string name="cheat_sheet_title">Cheater!</string>
+    <string name="congratulations">Congratulations!</string>
+    <string name="your_score_is_0">Your score is 0</string>
 </resources>

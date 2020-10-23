@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.appcompat.widget.Toolbar
 import androidx.navigation.fragment.findNavController
 import com.comp3617.assignment1.MainActivity.Companion.CURRENT_SCORE
 
@@ -19,20 +20,19 @@ class Question2Fragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+        activity?.findViewById<Toolbar>(R.id.toolbar)?.title = getString(R.string.question_2_title)
         return inflater.inflate(R.layout.fragment_question, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         portraitImage = view.findViewById(R.id.portrait_image)
-        portraitImage.setImageResource(R.drawable.q1_image)
+        portraitImage.setImageResource(R.drawable.q2_image)
 
         view.findViewById<TextView>(R.id.score)?.let {
             val text =  "Your score is $CURRENT_SCORE"
             it.text = text
         }
-
 
         view.findViewById<TextView>(R.id.question)?.let {
             it.text = MainActivity.QUIZ_CONTENT[contentIndex].question

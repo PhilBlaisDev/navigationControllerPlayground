@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
-        supportActionBar?.title = "Pick a question"
+        supportActionBar?.title = getString(R.string.pick_a_question)
 
         // Populate the Quiz content used throughout the application
         if(QUIZ_CONTENT.size == 0){

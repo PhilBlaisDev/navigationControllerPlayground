@@ -13,6 +13,9 @@ class QuestionListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question_list)
+
+        supportActionBar?.title = getString(R.string.cheat_sheet_title)
+
         val listView = findViewById<ListView>(R.id.list_view)
         val itemList = ArrayList<String>()
         val answersList = ArrayList<String>()

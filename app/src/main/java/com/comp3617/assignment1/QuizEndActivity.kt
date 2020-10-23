@@ -3,6 +3,7 @@ package com.comp3617.assignment1
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.comp3617.assignment1.MainActivity.Companion.CURRENT_SCORE
@@ -12,8 +13,21 @@ class QuizEndActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_end)
 
+        supportActionBar?.title = getString(R.string.congratulations)
+
+        if(CURRENT_SCORE < 3){
+            findViewById<ImageView>(R.id.end_image).setImageResource(R.drawable.end_failed_image)
+        } else{
+            findViewById<ImageView>(R.id.end_image).setImageResource(R.drawable.end_image)
+        }
+
+
         findViewById<TextView>(R.id.content)?.let {
-            it.text = "Your final score is $CURRENT_SCORE"
+            it.text = getString(R.string.final_score)
+        }
+
+        findViewById<TextView>(R.id.score)?.let {
+            it.text = CURRENT_SCORE.toString()
         }
 
         findViewById<Button>(R.id.end_button).setOnClickListener {
