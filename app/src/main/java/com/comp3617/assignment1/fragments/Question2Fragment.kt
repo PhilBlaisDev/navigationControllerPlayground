@@ -1,7 +1,5 @@
-package com.comp3617.assignment1
+package com.comp3617.assignment1.fragments
 
-import android.content.Intent
-import android.content.res.Configuration
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,28 +8,41 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.fragment.findNavController
-import com.comp3617.assignment1.MainActivity.Companion.CURRENT_SCORE
+import com.comp3617.assignment1.R
+import com.comp3617.assignment1.activities.MainActivity
+import com.comp3617.assignment1.activities.MainActivity.Companion.CURRENT_SCORE
 
 /**
- * A simple [Fragment] subclass as the second destination in the navigation.
+ * Question 2 fragment [Fragment] subclass as the third destination in the navigation.
+ * contentIndex field Int used to fetch data from QUIZ_CONTENT
  */
-class Question7Fragment : Fragment() {
-    private var contentIndex = 6
-    private lateinit var portraitImage: ImageView
+class Question2Fragment : Fragment() {
+    private var contentIndex = 1
 
+    /**
+     * Creates view and populates toolbar's title
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        activity?.findViewById<Toolbar>(R.id.toolbar)?.title = getString(R.string.question_7_title)
+        activity?.findViewById<Toolbar>(R.id.toolbar)?.title = getString(
+            R.string.question_2_title
+        )
         return inflater.inflate(R.layout.fragment_question, container, false)
     }
 
+    /**
+     * Populates question image, question TextView and radio buttons text
+     * Action button validates if a radio has been selected and increments and
+     * goes to following question fragment
+     *
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        portraitImage = view.findViewById(R.id.portrait_image)
-        portraitImage.setImageResource(R.drawable.q7_image)
-
+        view.findViewById<ImageView>(R.id.question_image).setImageResource(
+            R.drawable.q2_image
+        )
         view.findViewById<TextView>(R.id.score)?.let {
             val text =  "Your score is $CURRENT_SCORE"
             it.text = text
@@ -56,7 +67,9 @@ class Question7Fragment : Fragment() {
         view.findViewById<RadioButton>(R.id.radioButton4)?.let {
             it.text = MainActivity.QUIZ_CONTENT[contentIndex].answer4
         }
+
         view.findViewById<Button>(R.id.action_button).setOnClickListener {
+
             view.findViewById<RadioGroup>(R.id.radioGroup).checkedRadioButtonId.let { checkId ->
                 when (checkId) {
                     -1 -> {
@@ -64,54 +77,48 @@ class Question7Fragment : Fragment() {
                     }
                     R.id.radioButton1 -> {
                         if (MainActivity.QUIZ_CONTENT[contentIndex].correctAnswer == 1) {
-                            CURRENT_SCORE += 1
+                            CURRENT_SCORE++
                         }
-                        gotToActivity()                    }
+                        findNavController().navigate(R.id.action_Question2Fragment_to_Question3Fragment)
+                    }
                     R.id.radioButton2 -> {
                         if (MainActivity.QUIZ_CONTENT[contentIndex].correctAnswer == 2) {
-                            CURRENT_SCORE += 1
+                            CURRENT_SCORE++
                         }
-                        gotToActivity()                    }
+                        findNavController().navigate(R.id.action_Question2Fragment_to_Question3Fragment)
+                    }
                     R.id.radioButton3 -> {
                         if (MainActivity.QUIZ_CONTENT[contentIndex].correctAnswer == 3) {
-                            CURRENT_SCORE += 1
+                            CURRENT_SCORE++
                         }
-                        gotToActivity()                    }
+                        findNavController().navigate(R.id.action_Question2Fragment_to_Question3Fragment)
+                    }
                     R.id.radioButton4 -> {
                         if (MainActivity.QUIZ_CONTENT[contentIndex].correctAnswer == 4) {
-                            CURRENT_SCORE += 1
+                            CURRENT_SCORE++
                         }
-                        gotToActivity()
+                        findNavController().navigate(R.id.action_Question2Fragment_to_Question3Fragment)
                     }
                 }
             }
         }
     }
 
+    /**
+     * Saves state of contentIndex
+     */
     override fun onSaveInstanceState(outState: Bundle) {
         outState.putInt("contentIndex", contentIndex)
-
         super.onSaveInstanceState(outState)
     }
 
+    /**
+     * Restores state of contentIndex
+     */
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         savedInstanceState?.getInt("contentIndex")?.let {
             contentIndex = it
         }
-
-        if(resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE){
-            portraitImage.visibility = View.GONE
-        } else{
-            portraitImage.visibility = View.VISIBLE
-        }
-
         super.onViewStateRestored(savedInstanceState)
-    }
-
-    private fun gotToActivity(){
-        Intent(requireContext(), QuizEndActivity::class.java).let {
-            requireActivity().startActivity(it)
-            requireActivity().finish()
-        }
     }
 }

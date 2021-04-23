@@ -1,4 +1,4 @@
-package com.comp3617.assignment1
+package com.comp3617.assignment1.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.comp3617.assignment1.R
 
 /**
- * A simple [Fragment] subclass as the default destination in the navigation.
+ * Starting [Fragment] subclass as the default destination in the navigation.
  */
 class QuizStartFragment : Fragment() {
 

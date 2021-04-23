@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.comp3617.assignment1.MainActivity">
+    tools:context="com.comp3617.assignment1.activities.MainActivity">
     <item
         android:id="@+id/action_question_list"
         android:icon="@drawable/ic_baseline_list_alt_24"

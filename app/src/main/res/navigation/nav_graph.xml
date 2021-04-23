@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/QuizStartFragment"
-        android:name="com.comp3617.assignment1.QuizStartFragment"
+        android:name="com.comp3617.assignment1.fragments.QuizStartFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_start_quiz">
 
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/Question1Fragment"
-        android:name="com.comp3617.assignment1.Question1Fragment"
+        android:name="com.comp3617.assignment1.fragments.Question1Fragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_question">
 
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/Question2Fragment"
-        android:name="com.comp3617.assignment1.Question2Fragment"
+        android:name="com.comp3617.assignment1.fragments.Question2Fragment"
         android:label="@string/third_fragment_label"
         tools:layout="@layout/fragment_question">
         <action
@@ -36,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/Question3Fragment"
-        android:name="com.comp3617.assignment1.Question3Fragment"
+        android:name="com.comp3617.assignment1.fragments.Question3Fragment"
         android:label="@string/fourth_fragment_label"
         tools:layout="@layout/fragment_question">
         <action
@@ -45,7 +45,7 @@
     </fragment>
     <fragment
         android:id="@+id/Question4Fragment"
-        android:name="com.comp3617.assignment1.Question4Fragment"
+        android:name="com.comp3617.assignment1.fragments.Question4Fragment"
         android:label="@string/fifth_fragment_label"
         tools:layout="@layout/fragment_question">
 
@@ -55,7 +55,7 @@
     </fragment>
     <fragment
         android:id="@+id/Question5Fragment"
-        android:name="com.comp3617.assignment1.Question5Fragment"
+        android:name="com.comp3617.assignment1.fragments.Question5Fragment"
         android:label="@string/sixth_fragment_label"
         tools:layout="@layout/fragment_question">
 
@@ -65,7 +65,7 @@
     </fragment>
     <fragment
         android:id="@+id/Question6Fragment"
-        android:name="com.comp3617.assignment1.Question6Fragment"
+        android:name="com.comp3617.assignment1.fragments.Question6Fragment"
         android:label="@string/seventh_fragment_label"
         tools:layout="@layout/fragment_question">
 
@@ -75,7 +75,7 @@
     </fragment>
     <fragment
         android:id="@+id/Question7Fragment"
-        android:name="com.comp3617.assignment1.Question7Fragment"
+        android:name="com.comp3617.assignment1.fragments.Question7Fragment"
         android:label="@string/eighth_fragment_label"
         tools:layout="@layout/fragment_question">
 

@@ -10,10 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PhilippeBlais">
-        <activity android:name=".QuizEndActivity" />
-        <activity android:name=".QuestionListActivity" />
+        <activity android:name=".activities.QuizEndActivity" />
+        <activity android:name=".activities.QuestionListActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.PhilippeBlais.NoActionBar">
             <intent-filter>

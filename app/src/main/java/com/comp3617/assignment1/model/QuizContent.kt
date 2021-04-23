@@ -1,5 +1,9 @@
-package com.comp3617.assignment1
+package com.comp3617.assignment1.model
 
+/**
+ * QuizContent object used to provide data used in the question fragments
+ *
+ */
 class QuizContent(var question : String, var answer1 : String, var answer2 : String, var answer3 : String, var answer4 : String, var correctAnswer : Int){
     private constructor(builder: Builder): this(builder.question, builder.answer1, builder.answer2, builder.answer3, builder.answer4, builder.correctAnswer)
 
