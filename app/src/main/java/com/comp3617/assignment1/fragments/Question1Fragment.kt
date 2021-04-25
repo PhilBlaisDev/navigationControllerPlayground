@@ -35,7 +35,7 @@ class Question1Fragment : Fragment() {
     /**
      * Populates question image, question TextView and radio buttons text
      * Action button validates if a radio has been selected and increments and
-     * goes to following question fragment, Added new comment
+     * goes to following question fragment, Added new comment 2
      *
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
